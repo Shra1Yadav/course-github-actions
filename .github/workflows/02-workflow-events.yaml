@@ -3,9 +3,9 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '*/15 * * * *' # every 15 minutes   
+    - cron: '*/5 * * * *' # every 15 minutes   
   workflow_dispatch:
-
+    
 jobs:
     echo:
         runs-on: ubuntu-latest
