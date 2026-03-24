@@ -5,14 +5,11 @@ on:
     inputs:
       debug:
         type: boolean
-        default: false
-    
+        default: false  
 run-name: 06 - Contexts | DEBUG - ${{ inputs.debug }}
-
 env:
   MY_WORKFLOW_VAR: 'workflow'
   MY_OVERWRITTEN_VAR: 'workflow'
-
 jobs:
     echo-data:
         env:
@@ -29,22 +26,19 @@ jobs:
                 echo "Workflow: ${{ github.workflow }}"
                 echo "Run ID: ${{ github.run_id }}"
                 echo "Run number: ${{ github.run_number }}"
-
             - name: Retrieve Variable
               run: |
                 echo "The value of the variable is: ${{ vars.MY_VAR }}" 
-            
             - name: Print Env Variables - 1
               env:
                 MY_OVERWRITTEN_VAR: 'step'
               run: |
                 echo "Workflow env: $MY_WORKFLOW_VAR"
                 echo "Overwritten env: $MY_OVERWRITTEN_VAR"
-
             - name: Print Env Variables - 2
               run: |
                 echo "Workflow env: $MY_WORKFLOW_VAR"
-                echo "Overwritten env: $MY_OVERWRITTEN_VAR"
+                echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"
             
 
 
