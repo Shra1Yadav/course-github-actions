@@ -28,7 +28,7 @@ jobs:
                 echo "Run number: ${{ github.run_number }}"
             - name: Retrieve Variable
               run: |
-                echo "The value of the variable is: ${{ env.MY_VAR }}" 
+                echo "The value of the variable is: ${{ vars.MY_VAR }}" 
             - name: Print Env Variables - 1
               env:
                 MY_OVERWRITTEN_VAR: 'step'
